@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  weatherapp
 //
-//  Created by admin on 21.02.2021.
+//  Created by admin on 18.02.2021.
 //
 
 import UIKit
