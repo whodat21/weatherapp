@@ -11,11 +11,16 @@ struct ContentView: View {
     @State private var selected = 0
     @ObservedObject var weather = CurrentWeatherViewModel()
 
+    @ObservedObject var weeklyWeather = WeeklyWeatherViewModel()
+    private var height = UIScreen.main.bounds.height
+
     var body: some View {
-        VStack(alignment: .center, spacing: 20) {
+        VStack(alignment: .center, spacing: 20){
+
             GeometryReader{ gr in
-                CurrentWeather(weather: self.weather.current, height: self.selected == 0 ? gr.size.height : gr.size.height * 0.50).animation(.easeInOut(duration: 0.5))
+                CurrentWeather(weather: self.weather.current, height: self.selected == 0 ? gr.size.height : gr.size.height * 0.75).animation(.easeInOut(duration: 0.5))
             }
+
             VStack{
                 Picker("", selection: $selected){
                     Text("Today")
@@ -27,12 +32,3 @@ struct ContentView: View {
         }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
     }
 }
-
-
-// this is an extension to make our Double as a whole nnumber without decimal value
-extension Double {
-    var round: Int {
-        return Int(self)
-    }
-}
-

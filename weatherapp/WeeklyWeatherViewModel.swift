@@ -2,7 +2,7 @@
 //  WeeklyWeatherViewModel.swift
 //  weatherapp
 //
-//  Created by admin on 23.02.2021.
+//  Created by admin on 19.02.2021.
 //
 
 import SwiftUI
@@ -16,7 +16,7 @@ class WeeklyWeatherViewModel: ObservableObject {
 }
 
 extension WeeklyWeatherViewModel {
-    func fetch(by city: String = "London") {
+    func fetch(by city: String = "new york") {
         API.weeklyWeather(city) {
             self.weather = $0
         }

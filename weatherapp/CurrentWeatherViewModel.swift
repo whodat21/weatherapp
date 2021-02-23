@@ -2,7 +2,7 @@
 //  CurrentWeatherViewModel.swift
 //  weatherapp
 //
-//  Created by admin on 23.02.2021.
+//  Created by admin on 19.02.2021.
 //
 
 import SwiftUI

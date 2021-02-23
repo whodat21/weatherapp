@@ -2,8 +2,18 @@
 //  API.swift
 //  weatherapp
 //
-//  Created by admin on 23.02.2021.
+//  Created by admin on 19.02.2021.
 //
+
+private let baseUrlForCurrentWeather = URL(string: "https://api.openweathermap.org/data/2.5/weather")!
+private let appid = "6495e3feb216a7160c340257411a8ea3"
+private let baseUrlForWeeklyWeather = URL(string: "https://api.openweathermap.org/data/2.5/forecast/daily")!
+
+private var decoder: JSONDecoder{
+    let decode = JSONDecoder()
+    decode.keyDecodingStrategy = .convertFromSnakeCase
+    return decode
+}
 
 import SwiftUI
 
@@ -30,9 +40,8 @@ class API {
         }.resume()
     }
 
-    // weekly weahter func
     class func weeklyWeather(_ city: String, onSuccess: @escaping (WeeklyWeather) -> Void) {
-        let query = ["q": "\(city)", "appid": appid, "units": "Imperial", "cnt": "5"]
+        let query = ["q": "\(city)", "appid": appid, "units": "Imperial", "cnt": "7"]
         guard baseUrlForWeeklyWeather.withQueries(query) != nil else { fatalError("Invalid URL for weekly weather")}
         guard let url = baseUrlForWeeklyWeather.withQueries(query) else { fatalError() }
 
